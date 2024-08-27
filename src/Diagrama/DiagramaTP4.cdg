@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="DiagramaTP4">
+  <ClassDiagramComponents>
+    <Class name="Materia" package="" visibility="public" xPosition="60.0" yPosition="48.0">
+      <Fields>
+        <Field name="idMateria" type="int" visibility="private"/>
+        <Field name="anio" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="Materia" returnType="void" visibility="public">
+          <Argument type="int" name="idMateria"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="anio"/>
+        </Method>
+        <Method name="getMateria" returnType="int" visibility="public"/>
+        <Method name="setIdMateria" returnType="void" visibility="public">
+          <Argument type="int" name="idMateria"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getAnio" returnType="int" visibility="public"/>
+        <Method name="setAnio" returnType="void" visibility="public">
+          <Argument type="int" name="anio"/>
+        </Method>
+        <Method name="agregarMateria" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Alumno" package="" visibility="public" xPosition="520.0" yPosition="39.0">
+      <Fields>
+        <Field name="numLegajo" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="Alumno" returnType="void" visibility="public">
+          <Argument type="int" name="numLegajo"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getNumLegajo" returnType="int" visibility="public"/>
+        <Method name="setNumLegajo" returnType="void" visibility="public">
+          <Argument type="int" name="numLegajo"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="setApellido" returnType="void" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="agregarMateria" returnType="void" visibility="public">
+          <Argument type="Materias" name="m"/>
+        </Method>
+        <Method name="cantidadMaterias" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Colegio" package="" visibility="public" xPosition="277.0" yPosition="463.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="Tiene" source="Alumno" target="Materia" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
