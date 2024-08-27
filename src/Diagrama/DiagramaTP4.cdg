@@ -61,13 +61,13 @@
         <Method name="cantidadMaterias" returnType="int" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Colegio" package="" visibility="public" xPosition="277.0" yPosition="463.0">
+    <Class name="Colegio" package="" visibility="public" xPosition="402.0" yPosition="462.0">
       <Fields/>
       <Constructors/>
       <Methods/>
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="Tiene" source="Alumno" target="Materia" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Tiene" source="Alumno" target="Materia" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
   </ClassDiagramRelations>
 </ClassDiagram>
