@@ -1,5 +1,7 @@
 package trabajopracticon4;
 
+import JFrame.Menu;
+
 public class Colegio {
     public static void main(String[] args) {
         //Punto 1
@@ -30,6 +32,9 @@ public class Colegio {
         alum2.toString();
         System.out.println("Cantidad de Materias: " + alum2.cantidadMaterias());
         System.out.println("<===============================================>");
+        Menu menu = new Menu();//con esto se crea el objeto
+        menu.setVisible(true);//para mostrar el menu
+        
         
     }
 }

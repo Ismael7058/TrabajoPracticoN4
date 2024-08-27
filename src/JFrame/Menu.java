@@ -1,6 +1,7 @@
 package JFrame;
 
 import java.util.Locale;
+import javax.swing.JFrame;
 
 public class Menu extends javax.swing.JFrame {
 
@@ -10,6 +11,10 @@ public class Menu extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("Menu");
         this.setResizable(false);
+                setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                        InterMateria interMateria = new InterMateria();
+                                               
+
     }
 
     /**
@@ -85,6 +90,7 @@ public class Menu extends javax.swing.JFrame {
         InterColegio interColegio = new InterColegio();
         jDesktopPaneMenu.add(interColegio);
         interColegio.setVisible(true);
+        
     }//GEN-LAST:event_jButtonColegioActionPerformed
 
     /**
@@ -128,4 +134,5 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButtonMateria;
     private javax.swing.JDesktopPane jDesktopPaneMenu;
     // End of variables declaration//GEN-END:variables
+
 }
