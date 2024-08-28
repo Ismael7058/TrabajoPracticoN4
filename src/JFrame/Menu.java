@@ -34,6 +34,13 @@ public class Menu extends javax.swing.JFrame {
         jButtonAlumno = new javax.swing.JButton();
         jDesktopPaneMenu = new javax.swing.JDesktopPane();
         jButtonColegio = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        JMAlumno = new javax.swing.JMenu();
+        JMIalumno = new javax.swing.JMenuItem();
+        JMImateria = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        JMIinscripciones = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -75,28 +82,88 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(jButtonColegio, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 110, 50));
 
+        JMAlumno.setText("Alumnos");
+        JMAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMAlumnoActionPerformed(evt);
+            }
+        });
+
+        JMIalumno.setText("Alumno");
+        JMIalumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMIalumnoActionPerformed(evt);
+            }
+        });
+        JMAlumno.add(JMIalumno);
+
+        jMenuBar1.add(JMAlumno);
+
+        JMImateria.setText("Materias");
+        JMImateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMImateriaActionPerformed(evt);
+            }
+        });
+
+        jMenuItem2.setText("Materia");
+        JMImateria.add(jMenuItem2);
+
+        jMenuBar1.add(JMImateria);
+
+        JMIinscripciones.setText("Inscripciones");
+
+        jMenuItem3.setText("Inscripcion");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        JMIinscripciones.add(jMenuItem3);
+
+        jMenuBar1.add(JMIinscripciones);
+
+        setJMenuBar(jMenuBar1);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlumnoActionPerformed
-        jDesktopPaneMenu.add(interAlumno);
-        interAlumno.setVisible(true);
+   
 
     }//GEN-LAST:event_jButtonAlumnoActionPerformed
 
     private void jButtonMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMateriaActionPerformed
-        jDesktopPaneMenu.add(interMateria);
-        interMateria.setVisible(true);
+        
     }//GEN-LAST:event_jButtonMateriaActionPerformed
 
     private void jButtonColegioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonColegioActionPerformed
-           InterColegio interColegio = new InterColegio(listaAlumnosMenu);
+           
+
+    }//GEN-LAST:event_jButtonColegioActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        InterColegio interColegio = new InterColegio(listaAlumnosMenu);
 
         jDesktopPaneMenu.add(interColegio);
         interColegio.setVisible(true);
         //obtenerAlumnos(listaAlumnosMenu);
+        
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    }//GEN-LAST:event_jButtonColegioActionPerformed
+    private void JMImateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMImateriaActionPerformed
+     jDesktopPaneMenu.add(interMateria);
+        interMateria.setVisible(true);
+    }//GEN-LAST:event_JMImateriaActionPerformed
+
+    private void JMAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMAlumnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JMAlumnoActionPerformed
+
+    private void JMIalumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIalumnoActionPerformed
+           jDesktopPaneMenu.add(interAlumno);
+        interAlumno.setVisible(true);
+    }//GEN-LAST:event_JMIalumnoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,10 +201,17 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu JMAlumno;
+    private javax.swing.JMenuItem JMIalumno;
+    private javax.swing.JMenu JMIinscripciones;
+    private javax.swing.JMenu JMImateria;
     private javax.swing.JButton jButtonAlumno;
     private javax.swing.JButton jButtonColegio;
     private javax.swing.JButton jButtonMateria;
     private javax.swing.JDesktopPane jDesktopPaneMenu;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     // End of variables declaration//GEN-END:variables
     public void obtenerAlumnos(HashSet<Alumno> listaAlumnos) {
         this.listaAlumnosMenu = listaAlumnos;
