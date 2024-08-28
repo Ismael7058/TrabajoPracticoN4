@@ -1,11 +1,20 @@
 package JFrame;
 
+import java.util.HashSet;
+import trabajopracticon4.Alumno;
+
 public class InterColegio extends javax.swing.JInternalFrame {
 
-    public InterColegio() {
+
+    public InterColegio(HashSet<Alumno> listaAlumnosMenu) {
         initComponents();
-        this.setSize(400,300);
+        this.setSize(400, 300);
         this.setTitle("Colegio");
+  for (Alumno listaAlumno : listaAlumnosMenu) {
+            jCBAlumno.addItem(listaAlumno.getNombre() + " "+listaAlumno.getApellido());
+        }
+
+        
     }
 
     /**
@@ -22,8 +31,8 @@ public class InterColegio extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jCBAlumno = new javax.swing.JComboBox<>();
+        jCBMateria = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
@@ -48,26 +57,44 @@ public class InterColegio extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel2.setText("Formulario de Alumnos");
+        jLabel2.setText("Formulario de Inscripcion");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 150, 30));
+        jCBAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBAlumnoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jCBAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 150, 30));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 62, 150, 30));
+        jCBMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBMateriaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jCBMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 62, 150, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jCBMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBMateriaActionPerformed
+
+    }//GEN-LAST:event_jCBMateriaActionPerformed
+
+    private void jCBAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBAlumnoActionPerformed
+      
+
+    }//GEN-LAST:event_jCBAlumnoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jCBAlumno;
+    private javax.swing.JComboBox<String> jCBMateria;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
+  
 }

@@ -1,6 +1,7 @@
 package trabajopracticon4;
 
 import java.util.HashSet;
+import java.util.Objects;
 
 public class Alumno {
     private int numLegajo;
@@ -50,6 +51,40 @@ public class Alumno {
     @Override
     public String toString() {
         return "Alumno: "+"\nNumero de Legajo: "+ numLegajo+"\nNombre: "+ nombre + "\nApellido: "+ apellido;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 37 * hash + this.numLegajo;
+        hash = 37 * hash + Objects.hashCode(this.nombre);
+        hash = 37 * hash + Objects.hashCode(this.apellido);
+        hash = 37 * hash + Objects.hashCode(this.matInscrip);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Alumno other = (Alumno) obj;
+        if (this.numLegajo != other.numLegajo) {
+            return false;
+        }
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.apellido, other.apellido)) {
+            return false;
+        }
+        return Objects.equals(this.matInscrip, other.matInscrip);
     }
     
     

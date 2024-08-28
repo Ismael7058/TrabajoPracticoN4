@@ -1,9 +1,12 @@
 package trabajopracticon4;
 
 import JFrame.Menu;
+import java.util.HashSet;
 
 public class Colegio {
     public static void main(String[] args) {
+            HashSet<Alumno> listaAlumnoMain = new HashSet<>();//se agrua
+
         //Punto 1
         Materia mat1 = new Materia(123, "Ingles 1", 1);
         Materia mat2 = new Materia(124, "Matematicas", 1);
@@ -32,9 +35,13 @@ public class Colegio {
         alum2.toString();
         System.out.println("Cantidad de Materias: " + alum2.cantidadMaterias());
         System.out.println("<===============================================>");
+        
+        listaAlumnoMain.add(alum1);
+        listaAlumnoMain.add(alum2);
+
         Menu menu = new Menu();//con esto se crea el objeto
         menu.setVisible(true);//para mostrar el menu
-        
+        menu.obtenerAlumnos(listaAlumnoMain);
         
     }
 }

@@ -1,19 +1,23 @@
 package JFrame;
 
+import java.util.HashSet;
 import java.util.Locale;
 import javax.swing.JFrame;
+import trabajopracticon4.Alumno;
 
 public class Menu extends javax.swing.JFrame {
+    HashSet<Alumno> listaAlumnosMenu = new HashSet<>();
+
+    InterMateria interMateria = new InterMateria();
+    InterAlumno interAlumno = new InterAlumno();
 
     public Menu() {
         initComponents();
-        this.setSize(600,500);
+        this.setSize(600, 500);
         this.setLocationRelativeTo(null);
         this.setTitle("Menu");
         this.setResizable(false);
-                setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                        InterMateria interMateria = new InterMateria();
-                                               
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
 
@@ -75,22 +79,23 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlumnoActionPerformed
-        InterAlumno interAlumno = new InterAlumno();
         jDesktopPaneMenu.add(interAlumno);
         interAlumno.setVisible(true);
+
     }//GEN-LAST:event_jButtonAlumnoActionPerformed
 
     private void jButtonMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMateriaActionPerformed
-        InterMateria interMateria = new InterMateria();
         jDesktopPaneMenu.add(interMateria);
         interMateria.setVisible(true);
     }//GEN-LAST:event_jButtonMateriaActionPerformed
 
     private void jButtonColegioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonColegioActionPerformed
-        InterColegio interColegio = new InterColegio();
+           InterColegio interColegio = new InterColegio(listaAlumnosMenu);
+
         jDesktopPaneMenu.add(interColegio);
         interColegio.setVisible(true);
-        
+        //obtenerAlumnos(listaAlumnosMenu);
+
     }//GEN-LAST:event_jButtonColegioActionPerformed
 
     /**
@@ -134,5 +139,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButtonMateria;
     private javax.swing.JDesktopPane jDesktopPaneMenu;
     // End of variables declaration//GEN-END:variables
-
+    public void obtenerAlumnos(HashSet<Alumno> listaAlumnos) {
+        this.listaAlumnosMenu = listaAlumnos;
+    
+    }
 }
