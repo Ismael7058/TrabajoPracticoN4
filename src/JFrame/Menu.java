@@ -4,12 +4,11 @@ import java.util.HashSet;
 import java.util.Locale;
 import javax.swing.JFrame;
 import trabajopracticon4.Alumno;
+import trabajopracticon4.Materia;
 
 public class Menu extends javax.swing.JFrame {
     HashSet<Alumno> listaAlumnosMenu = new HashSet<>();
-
-    InterMateria interMateria = new InterMateria();
-    InterAlumno interAlumno = new InterAlumno();
+    HashSet<Materia> listaMateriaMenu = new HashSet<>();
 
     public Menu() {
         initComponents();
@@ -30,57 +29,30 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButtonMateria = new javax.swing.JButton();
-        jButtonAlumno = new javax.swing.JButton();
         jDesktopPaneMenu = new javax.swing.JDesktopPane();
-        jButtonColegio = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         JMAlumno = new javax.swing.JMenu();
         JMIalumno = new javax.swing.JMenuItem();
-        JMImateria = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        JMmateria = new javax.swing.JMenu();
+        jMImateria = new javax.swing.JMenuItem();
         JMIinscripciones = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonMateria.setText("Materia");
-        jButtonMateria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonMateriaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, 110, 50));
-
-        jButtonAlumno.setText("Alumno");
-        jButtonAlumno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAlumnoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 110, 50));
-
         javax.swing.GroupLayout jDesktopPaneMenuLayout = new javax.swing.GroupLayout(jDesktopPaneMenu);
         jDesktopPaneMenu.setLayout(jDesktopPaneMenuLayout);
         jDesktopPaneMenuLayout.setHorizontalGroup(
             jDesktopPaneMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 560, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
         jDesktopPaneMenuLayout.setVerticalGroup(
             jDesktopPaneMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 340, Short.MAX_VALUE)
+            .addGap(0, 480, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jDesktopPaneMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 560, 340));
-
-        jButtonColegio.setText("Colegio");
-        jButtonColegio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonColegioActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonColegio, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 110, 50));
+        getContentPane().add(jDesktopPaneMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 480));
 
         JMAlumno.setText("Alumnos");
         JMAlumno.addActionListener(new java.awt.event.ActionListener() {
@@ -99,17 +71,22 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(JMAlumno);
 
-        JMImateria.setText("Materias");
-        JMImateria.addActionListener(new java.awt.event.ActionListener() {
+        JMmateria.setText("Materias");
+        JMmateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JMImateriaActionPerformed(evt);
+                JMmateriaActionPerformed(evt);
             }
         });
 
-        jMenuItem2.setText("Materia");
-        JMImateria.add(jMenuItem2);
+        jMImateria.setText("Materia");
+        jMImateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMImateriaActionPerformed(evt);
+            }
+        });
+        JMmateria.add(jMImateria);
 
-        jMenuBar1.add(JMImateria);
+        jMenuBar1.add(JMmateria);
 
         JMIinscripciones.setText("Inscripciones");
 
@@ -128,22 +105,8 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlumnoActionPerformed
-   
-
-    }//GEN-LAST:event_jButtonAlumnoActionPerformed
-
-    private void jButtonMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMateriaActionPerformed
-        
-    }//GEN-LAST:event_jButtonMateriaActionPerformed
-
-    private void jButtonColegioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonColegioActionPerformed
-           
-
-    }//GEN-LAST:event_jButtonColegioActionPerformed
-
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        InterColegio interColegio = new InterColegio(listaAlumnosMenu);
+        InterInscripcion interColegio = new InterInscripcion(listaAlumnosMenu);
 
         jDesktopPaneMenu.add(interColegio);
         interColegio.setVisible(true);
@@ -151,19 +114,26 @@ public class Menu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void JMImateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMImateriaActionPerformed
-     jDesktopPaneMenu.add(interMateria);
-        interMateria.setVisible(true);
-    }//GEN-LAST:event_JMImateriaActionPerformed
+    private void JMmateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMmateriaActionPerformed
+        
+        
+    }//GEN-LAST:event_JMmateriaActionPerformed
 
     private void JMAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMAlumnoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JMAlumnoActionPerformed
 
     private void JMIalumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIalumnoActionPerformed
-           jDesktopPaneMenu.add(interAlumno);
+        InterAlumno interAlumno = new InterAlumno(listaAlumnosMenu);
+        jDesktopPaneMenu.add(interAlumno);
         interAlumno.setVisible(true);
     }//GEN-LAST:event_JMIalumnoActionPerformed
+
+    private void jMImateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMImateriaActionPerformed
+        InterMateria interMateria = new InterMateria(listaMateriaMenu);
+        jDesktopPaneMenu.add(interMateria);
+        interMateria.setVisible(true);
+    }//GEN-LAST:event_jMImateriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,13 +174,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu JMAlumno;
     private javax.swing.JMenuItem JMIalumno;
     private javax.swing.JMenu JMIinscripciones;
-    private javax.swing.JMenu JMImateria;
-    private javax.swing.JButton jButtonAlumno;
-    private javax.swing.JButton jButtonColegio;
-    private javax.swing.JButton jButtonMateria;
+    private javax.swing.JMenu JMmateria;
     private javax.swing.JDesktopPane jDesktopPaneMenu;
+    private javax.swing.JMenuItem jMImateria;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     // End of variables declaration//GEN-END:variables
     public void obtenerAlumnos(HashSet<Alumno> listaAlumnos) {

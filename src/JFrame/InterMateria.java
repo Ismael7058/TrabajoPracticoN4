@@ -1,8 +1,11 @@
 package JFrame;
 
+import java.util.HashSet;
+import trabajopracticon4.Materia;
+
 public class InterMateria extends javax.swing.JInternalFrame {
     
-    public InterMateria() {
+    public InterMateria(HashSet<Materia> listaMateriaMenu) {
         initComponents();
         this.setSize(400,300);
         this.setTitle("Materia");
@@ -42,6 +45,11 @@ public class InterMateria extends javax.swing.JInternalFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, -1, -1));
 
         jButton2.setText("Nuevo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, -1, -1));
 
         jButton3.setText("Guarar");
@@ -61,6 +69,12 @@ public class InterMateria extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        jTextField1.setText(null);
+        jTextField2.setText(null);
+        jTextField3.setText(null);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -3,10 +3,10 @@ package JFrame;
 import java.util.HashSet;
 import trabajopracticon4.Alumno;
 
-public class InterColegio extends javax.swing.JInternalFrame {
+public class InterInscripcion extends javax.swing.JInternalFrame {
 
 
-    public InterColegio(HashSet<Alumno> listaAlumnosMenu) {
+    public InterInscripcion(HashSet<Alumno> listaAlumnosMenu) {
         initComponents();
         this.setSize(400, 300);
         this.setTitle("Colegio");
