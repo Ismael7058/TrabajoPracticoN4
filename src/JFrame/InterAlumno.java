@@ -5,9 +5,11 @@ import trabajopracticon4.Alumno;
 
 public class InterAlumno extends javax.swing.JInternalFrame {
 
+    HashSet<Alumno> listaAlumnoInter = new HashSet<>();//almacenamiento propio de interAlumnos
+
     public InterAlumno(HashSet<Alumno> listaAlumnosMenu) {
         initComponents();
-        this.setSize(400,300);
+        this.setSize(400, 300);
         this.setTitle("Alumno");
     }
 
@@ -24,12 +26,12 @@ public class InterAlumno extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jTApellidoAlum = new javax.swing.JTextField();
+        jTLegajoAlum = new javax.swing.JTextField();
+        jTNombreAlum = new javax.swing.JTextField();
+        jBSalir = new javax.swing.JButton();
+        jBNuevo = new javax.swing.JButton();
+        jBGuardar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -49,44 +51,67 @@ public class InterAlumno extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Nombre: ");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 270, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 270, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 270, -1));
+        getContentPane().add(jTApellidoAlum, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 270, -1));
+        getContentPane().add(jTLegajoAlum, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 270, -1));
+        getContentPane().add(jTNombreAlum, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 270, -1));
 
-        jButton1.setText("Salir");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, -1, -1));
-
-        jButton2.setText("Nuevo");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jBSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, -1, -1));
+        getContentPane().add(jBSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, -1, -1));
 
-        jButton3.setText("Guarar");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, -1, -1));
+        jBNuevo.setText("Nuevo");
+        jBNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBNuevoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jBNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 220, -1, -1));
+
+        jBGuardar.setText("Guardar");
+        jBGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGuardarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jBGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        jTextField1.setText(null);
-        jTextField2.setText(null);
-        jTextField3.setText(null);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
+        jTApellidoAlum.setText(null);
+        jTLegajoAlum.setText(null);
+        jTNombreAlum.setText(null);
+    }//GEN-LAST:event_jBNuevoActionPerformed
+
+    private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
+        String Nom = jTNombreAlum.getText();
+        String Ape = jTApellidoAlum.getText();
+        int Leg = Integer.parseInt(jTLegajoAlum.getText());
+        Alumno alum = new Alumno(Leg, Nom, Ape);
+        listaAlumnoInter.add(alum);
+
+    }//GEN-LAST:event_jBGuardarActionPerformed
+
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jBSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jBGuardar;
+    private javax.swing.JButton jBNuevo;
+    private javax.swing.JButton jBSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTApellidoAlum;
+    private javax.swing.JTextField jTLegajoAlum;
+    private javax.swing.JTextField jTNombreAlum;
     // End of variables declaration//GEN-END:variables
 }

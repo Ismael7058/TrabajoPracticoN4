@@ -4,11 +4,15 @@ import java.util.HashSet;
 import trabajopracticon4.Materia;
 
 public class InterMateria extends javax.swing.JInternalFrame {
-    
+
+    HashSet<Materia> listaMateriaInter = new HashSet<>();//almacenamiento propio de interMateria
+
     public InterMateria(HashSet<Materia> listaMateriaMenu) {
         initComponents();
-        this.setSize(400,300);
+        this.setSize(400, 300);
         this.setTitle("Materia");
+        setMaterias(listaMateriaMenu);
+        
     }
 
     /**
@@ -21,15 +25,15 @@ public class InterMateria extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        jBSalir = new javax.swing.JButton();
+        jBNuevo = new javax.swing.JButton();
+        jBGuardar = new javax.swing.JButton();
+        jTAnioMate = new javax.swing.JTextField();
+        jTNombreMate = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTCodigoMate = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -41,21 +45,31 @@ public class InterMateria extends javax.swing.JInternalFrame {
         jLabel2.setText("Formulario de Materias");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
-        jButton1.setText("Salir");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, -1, -1));
-
-        jButton2.setText("Nuevo");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jBSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, -1, -1));
+        getContentPane().add(jBSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, -1, -1));
 
-        jButton3.setText("Guarar");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 200, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 200, -1));
+        jBNuevo.setText("Nuevo");
+        jBNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBNuevoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jBNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 220, -1, -1));
+
+        jBGuardar.setText("Guardar");
+        jBGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGuardarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jBGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, -1, -1));
+        getContentPane().add(jTAnioMate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 200, -1));
+        getContentPane().add(jTNombreMate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 200, -1));
 
         jLabel3.setText("Año al que pertenece:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
@@ -65,28 +79,47 @@ public class InterMateria extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Código de la materia:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 200, -1));
+        getContentPane().add(jTCodigoMate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 200, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        jTextField1.setText(null);
-        jTextField2.setText(null);
-        jTextField3.setText(null);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jBNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNuevoActionPerformed
+        jTAnioMate.setText(null);
+        jTCodigoMate.setText(null);
+        jTNombreMate.setText(null);
+    }//GEN-LAST:event_jBNuevoActionPerformed
+
+    private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
+        int id = Integer.parseInt(jTCodigoMate.getText());
+        String nom = jTNombreMate.getText();
+        int anio = Integer.parseInt(jTAnioMate.getText());
+        Materia mat = new Materia(id, nom, anio);
+        listaMateriaInter.add(mat);
+
+    }//GEN-LAST:event_jBGuardarActionPerformed
+
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jBSalirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jBGuardar;
+    private javax.swing.JButton jBNuevo;
+    private javax.swing.JButton jBSalir;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTAnioMate;
+    private javax.swing.JTextField jTCodigoMate;
+    private javax.swing.JTextField jTNombreMate;
     // End of variables declaration//GEN-END:variables
+private HashSet<Materia> setMaterias (HashSet<Materia> listaMM){
+    for (Materia materia : listaMateriaInter) {
+        listaMM.add(materia);
+    }
+    return listaMM;
+}
 }

@@ -7,6 +7,7 @@ import trabajopracticon4.Alumno;
 import trabajopracticon4.Materia;
 
 public class Menu extends javax.swing.JFrame {
+
     HashSet<Alumno> listaAlumnosMenu = new HashSet<>();
     HashSet<Materia> listaMateriaMenu = new HashSet<>();
 
@@ -17,7 +18,6 @@ public class Menu extends javax.swing.JFrame {
         this.setTitle("Menu");
         this.setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     }
 
     /**
@@ -29,39 +29,34 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPaneMenu = new javax.swing.JDesktopPane();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        jDPMEscritorio = new javax.swing.JDesktopPane();
+        jMBMenu = new javax.swing.JMenuBar();
         JMAlumno = new javax.swing.JMenu();
         JMIalumno = new javax.swing.JMenuItem();
         JMmateria = new javax.swing.JMenu();
         jMImateria = new javax.swing.JMenuItem();
-        JMIinscripciones = new javax.swing.JMenu();
+        JMinscripciones = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jDesktopPaneMenuLayout = new javax.swing.GroupLayout(jDesktopPaneMenu);
-        jDesktopPaneMenu.setLayout(jDesktopPaneMenuLayout);
-        jDesktopPaneMenuLayout.setHorizontalGroup(
-            jDesktopPaneMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jDPMEscritorioLayout = new javax.swing.GroupLayout(jDPMEscritorio);
+        jDPMEscritorio.setLayout(jDPMEscritorioLayout);
+        jDPMEscritorioLayout.setHorizontalGroup(
+            jDPMEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 600, Short.MAX_VALUE)
         );
-        jDesktopPaneMenuLayout.setVerticalGroup(
-            jDesktopPaneMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jDPMEscritorioLayout.setVerticalGroup(
+            jDPMEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 480, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jDesktopPaneMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 480));
+        getContentPane().add(jDPMEscritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 480));
 
         JMAlumno.setText("Alumnos");
-        JMAlumno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JMAlumnoActionPerformed(evt);
-            }
-        });
 
-        JMIalumno.setText("Alumno");
+        JMIalumno.setText("Formulario de Alumno");
         JMIalumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JMIalumnoActionPerformed(evt);
@@ -69,16 +64,11 @@ public class Menu extends javax.swing.JFrame {
         });
         JMAlumno.add(JMIalumno);
 
-        jMenuBar1.add(JMAlumno);
+        jMBMenu.add(JMAlumno);
 
         JMmateria.setText("Materias");
-        JMmateria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JMmateriaActionPerformed(evt);
-            }
-        });
 
-        jMImateria.setText("Materia");
+        jMImateria.setText("Formulario de Materias");
         jMImateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMImateriaActionPerformed(evt);
@@ -86,53 +76,50 @@ public class Menu extends javax.swing.JFrame {
         });
         JMmateria.add(jMImateria);
 
-        jMenuBar1.add(JMmateria);
+        jMBMenu.add(JMmateria);
 
-        JMIinscripciones.setText("Inscripciones");
+        JMinscripciones.setText("Inscripciones");
 
-        jMenuItem3.setText("Inscripcion");
+        jMenuItem3.setText("Formulario de Inscripcion");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
             }
         });
-        JMIinscripciones.add(jMenuItem3);
+        JMinscripciones.add(jMenuItem3);
 
-        jMenuBar1.add(JMIinscripciones);
+        jMBMenu.add(JMinscripciones);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(jMBMenu);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        InterInscripcion interColegio = new InterInscripcion(listaAlumnosMenu);
+        jDPMEscritorio.removeAll();
+        jDPMEscritorio.repaint();
+        InterInscripcion interInscripcion = new InterInscripcion(listaAlumnosMenu,listaMateriaMenu);
+        jDPMEscritorio.add(interInscripcion);
+        interInscripcion.setVisible(true);
 
-        jDesktopPaneMenu.add(interColegio);
-        interColegio.setVisible(true);
-        //obtenerAlumnos(listaAlumnosMenu);
-        
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void JMmateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMmateriaActionPerformed
-        
-        
-    }//GEN-LAST:event_JMmateriaActionPerformed
-
-    private void JMAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMAlumnoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JMAlumnoActionPerformed
-
     private void JMIalumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIalumnoActionPerformed
+        jDPMEscritorio.removeAll();
+        jDPMEscritorio.repaint();
         InterAlumno interAlumno = new InterAlumno(listaAlumnosMenu);
-        jDesktopPaneMenu.add(interAlumno);
+        jDPMEscritorio.add(interAlumno);
         interAlumno.setVisible(true);
+
     }//GEN-LAST:event_JMIalumnoActionPerformed
 
     private void jMImateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMImateriaActionPerformed
+        jDPMEscritorio.removeAll();
+        jDPMEscritorio.repaint();
         InterMateria interMateria = new InterMateria(listaMateriaMenu);
-        jDesktopPaneMenu.add(interMateria);
+        jDPMEscritorio.add(interMateria);
         interMateria.setVisible(true);
+
     }//GEN-LAST:event_jMImateriaActionPerformed
 
     /**
@@ -173,15 +160,25 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu JMAlumno;
     private javax.swing.JMenuItem JMIalumno;
-    private javax.swing.JMenu JMIinscripciones;
+    private javax.swing.JMenu JMinscripciones;
     private javax.swing.JMenu JMmateria;
-    private javax.swing.JDesktopPane jDesktopPaneMenu;
+    private javax.swing.JDesktopPane jDPMEscritorio;
+    private javax.swing.JMenuBar jMBMenu;
     private javax.swing.JMenuItem jMImateria;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem3;
     // End of variables declaration//GEN-END:variables
     public void obtenerAlumnos(HashSet<Alumno> listaAlumnos) {
-        this.listaAlumnosMenu = listaAlumnos;
-    
+
+        for (Alumno alumno : listaAlumnos) {
+            listaAlumnosMenu.add(alumno);
+        }
+
+    }
+    public void obtenerMateria(HashSet<Materia> listaMaterias) {
+
+        for (Materia materia : listaMaterias) {
+            listaMateriaMenu.add(materia);
+        }
+
     }
 }

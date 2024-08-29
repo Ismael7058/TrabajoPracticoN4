@@ -2,18 +2,23 @@ package JFrame;
 
 import java.util.HashSet;
 import trabajopracticon4.Alumno;
+import trabajopracticon4.Materia;
 
 public class InterInscripcion extends javax.swing.JInternalFrame {
 
 
-    public InterInscripcion(HashSet<Alumno> listaAlumnosMenu) {
+    public InterInscripcion(HashSet<Alumno> listaAlumnosMenu, HashSet<Materia> listaMateriaMenu) {
         initComponents();
         this.setSize(400, 300);
         this.setTitle("Colegio");
   for (Alumno listaAlumno : listaAlumnosMenu) {
-            jCBAlumno.addItem(listaAlumno.getNombre() + " "+listaAlumno.getApellido());
-        }
+            //jCBAlumno.addItem(listaAlumno.getNombre() + " "+listaAlumno.getApellido());
+            jCBAlumno.addItem(listaAlumno.toString());
 
+        }
+        for (Materia materia : listaMateriaMenu) {
+            jCBMateria.addItem(materia.toString());
+        }
         
     }
 
@@ -41,6 +46,11 @@ public class InterInscripcion extends javax.swing.JInternalFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Salir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, -1, -1));
 
         jButton2.setText("Inscribir");
@@ -65,14 +75,14 @@ public class InterInscripcion extends javax.swing.JInternalFrame {
                 jCBAlumnoActionPerformed(evt);
             }
         });
-        getContentPane().add(jCBAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 150, 30));
+        getContentPane().add(jCBAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 170, 30));
 
         jCBMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCBMateriaActionPerformed(evt);
             }
         });
-        getContentPane().add(jCBMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 62, 150, 30));
+        getContentPane().add(jCBMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 62, 170, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -85,6 +95,11 @@ public class InterInscripcion extends javax.swing.JInternalFrame {
       
 
     }//GEN-LAST:event_jCBAlumnoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

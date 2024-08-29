@@ -50,7 +50,7 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return "Alumno: "+"\nNumero de Legajo: "+ numLegajo+"\nNombre: "+ nombre + "\nApellido: "+ apellido;
+        return numLegajo+" - "+ nombre + " - "+ apellido;
     }
 
     @Override
