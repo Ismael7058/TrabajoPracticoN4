@@ -98,7 +98,7 @@ public class Menu extends javax.swing.JFrame {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         jDPMEscritorio.removeAll();
         jDPMEscritorio.repaint();
-        InterInscripcion interInscripcion = new InterInscripcion(listaAlumnosMenu,listaMateriaMenu);
+        InterInscripcion interInscripcion = new InterInscripcion();
         jDPMEscritorio.add(interInscripcion);
         interInscripcion.setVisible(true);
 

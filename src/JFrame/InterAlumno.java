@@ -2,6 +2,7 @@ package JFrame;
 
 import java.util.HashSet;
 import trabajopracticon4.Alumno;
+import trabajopracticon4.Colegio;
 
 public class InterAlumno extends javax.swing.JInternalFrame {
 
@@ -93,8 +94,7 @@ public class InterAlumno extends javax.swing.JInternalFrame {
         String Ape = jTApellidoAlum.getText();
         int Leg = Integer.parseInt(jTLegajoAlum.getText());
         Alumno alum = new Alumno(Leg, Nom, Ape);
-        listaAlumnoInter.add(alum);
-
+        Colegio.setAlumno(alum);//Se guarda 
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed

@@ -1,17 +1,16 @@
 package JFrame;
 
 import java.util.HashSet;
+import trabajopracticon4.Colegio;
 import trabajopracticon4.Materia;
 
 public class InterMateria extends javax.swing.JInternalFrame {
 
-    HashSet<Materia> listaMateriaInter = new HashSet<>();//almacenamiento propio de interMateria
 
     public InterMateria(HashSet<Materia> listaMateriaMenu) {
         initComponents();
         this.setSize(400, 300);
         this.setTitle("Materia");
-        setMaterias(listaMateriaMenu);
         
     }
 
@@ -95,12 +94,15 @@ public class InterMateria extends javax.swing.JInternalFrame {
         String nom = jTNombreMate.getText();
         int anio = Integer.parseInt(jTAnioMate.getText());
         Materia mat = new Materia(id, nom, anio);
-        listaMateriaInter.add(mat);
+        Colegio.setMateria(mat);
 
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+                
+
         this.dispose();
+        
     }//GEN-LAST:event_jBSalirActionPerformed
 
 
@@ -116,10 +118,6 @@ public class InterMateria extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTCodigoMate;
     private javax.swing.JTextField jTNombreMate;
     // End of variables declaration//GEN-END:variables
-private HashSet<Materia> setMaterias (HashSet<Materia> listaMM){
-    for (Materia materia : listaMateriaInter) {
-        listaMM.add(materia);
-    }
-    return listaMM;
-}
+
+    
 }

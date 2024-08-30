@@ -2,24 +2,23 @@ package JFrame;
 
 import java.util.HashSet;
 import trabajopracticon4.Alumno;
+import trabajopracticon4.Colegio;
 import trabajopracticon4.Materia;
 
 public class InterInscripcion extends javax.swing.JInternalFrame {
 
-
-    public InterInscripcion(HashSet<Alumno> listaAlumnosMenu, HashSet<Materia> listaMateriaMenu) {
+    public InterInscripcion() {
         initComponents();
         this.setSize(400, 300);
         this.setTitle("Colegio");
-  for (Alumno listaAlumno : listaAlumnosMenu) {
-            //jCBAlumno.addItem(listaAlumno.getNombre() + " "+listaAlumno.getApellido());
-            jCBAlumno.addItem(listaAlumno.toString());
-
+        //Estos 2 forEach hacen que se carguen los comboBox
+        for (Alumno alumno : Colegio.getListaAlumnos()) {
+            jCBAlumno.addItem(alumno.toString());
         }
-        for (Materia materia : listaMateriaMenu) {
+        for (Materia materia : Colegio.getListaMaterias()) {
             jCBMateria.addItem(materia.toString());
         }
-        
+
     }
 
     /**
@@ -70,31 +69,12 @@ public class InterInscripcion extends javax.swing.JInternalFrame {
         jLabel2.setText("Formulario de Inscripcion");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
-        jCBAlumno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCBAlumnoActionPerformed(evt);
-            }
-        });
         getContentPane().add(jCBAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 170, 30));
 
-        jCBMateria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCBMateriaActionPerformed(evt);
-            }
-        });
         getContentPane().add(jCBMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 62, 170, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jCBMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBMateriaActionPerformed
-
-    }//GEN-LAST:event_jCBMateriaActionPerformed
-
-    private void jCBAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBAlumnoActionPerformed
-      
-
-    }//GEN-LAST:event_jCBAlumnoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
@@ -111,5 +91,5 @@ public class InterInscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
-  
+
 }
