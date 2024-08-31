@@ -90,12 +90,12 @@ public class InterInscripcion extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String aux = jCBAlumno.getSelectedItem() + "" + jCBMateria.getSelectedItem();
-        if (inscripcion.contains(aux)) {
+        if (Colegio.getIncripcion().contains(aux)) {
             JOptionPane.showMessageDialog(this, "El alumno ya esta incripto a la materia");
 
         } else {
             JOptionPane.showMessageDialog(this, "Alumno: " + jCBAlumno.getSelectedItem() + "\n se a incripto a " + jCBMateria.getSelectedItem());
-            inscripcion.add(aux);
+            Colegio.getIncripcion().add(aux);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

@@ -4,7 +4,7 @@ import JFrame.Menu;
 import java.util.HashSet;
 
 public class Colegio {
-
+    private static HashSet<String> incripcion = new HashSet<>();//almacena los datos de inscripcion
     private static HashSet<Alumno> listaAlumnoMain = new HashSet<>();//almacenamiento primario de alumnos
     private static HashSet<Materia> listaMateriaMain = new HashSet<>();//almacenamiento primario de materias
 
@@ -70,4 +70,13 @@ public class Colegio {
     public static HashSet<Materia> getListaMaterias() {
         return listaMateriaMain;
     }
+
+    public static HashSet<String> getIncripcion() {
+        return incripcion;
+    }
+
+    public static void setIncripcion(HashSet<String> incripcion) {
+        Colegio.incripcion = incripcion;
+    }
+    
 }
