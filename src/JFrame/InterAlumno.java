@@ -1,6 +1,7 @@
 package JFrame;
 
 import java.util.HashSet;
+import javax.swing.JOptionPane;
 import trabajopracticon4.Alumno;
 import trabajopracticon4.Colegio;
 
@@ -90,11 +91,20 @@ public class InterAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBNuevoActionPerformed
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
-        String Nom = jTNombreAlum.getText();
-        String Ape = jTApellidoAlum.getText();
-        int Leg = Integer.parseInt(jTLegajoAlum.getText());
-        Alumno alum = new Alumno(Leg, Nom, Ape);
-        Colegio.setAlumno(alum);//Se guarda 
+        try {
+            String nom = jTNombreAlum.getText();
+            String ape = jTApellidoAlum.getText();
+            int leg = Integer.parseInt(jTLegajoAlum.getText());
+
+            Alumno alum = new Alumno(leg, nom, ape);
+            Colegio.setAlumno(alum);//Se guarda 
+        } catch (NumberFormatException ex) {
+            // Capturar la excepción y mostrar un mensaje de error
+            JOptionPane.showMessageDialog(this, "Error: Debes ingresar un número entero válido");
+            // Limpiar el JTextField para que el usuario vuelva a intentar
+            jTLegajoAlum.setText("");
+        }
+        
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed

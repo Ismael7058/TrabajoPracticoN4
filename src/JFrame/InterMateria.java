@@ -1,17 +1,18 @@
 package JFrame;
 
 import java.util.HashSet;
+import javax.swing.JOptionPane;
+import trabajopracticon4.Alumno;
 import trabajopracticon4.Colegio;
 import trabajopracticon4.Materia;
 
 public class InterMateria extends javax.swing.JInternalFrame {
 
-
     public InterMateria(HashSet<Materia> listaMateriaMenu) {
         initComponents();
         this.setSize(400, 300);
         this.setTitle("Materia");
-        
+
     }
 
     /**
@@ -90,19 +91,26 @@ public class InterMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBNuevoActionPerformed
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
-        int id = Integer.parseInt(jTCodigoMate.getText());
-        String nom = jTNombreMate.getText();
-        int anio = Integer.parseInt(jTAnioMate.getText());
-        Materia mat = new Materia(id, nom, anio);
-        Colegio.setMateria(mat);
+        try {
+            int codMat = Integer.parseInt(jTCodigoMate.getText());
+            String nomMat = jTNombreMate.getText();
+            int anio = Integer.parseInt(jTAnioMate.getText());
 
+            Materia mat = new Materia(codMat, nomMat, anio);
+            Colegio.setMateria(mat);
+        } catch (NumberFormatException ex) {
+            // Capturar la excepción y mostrar un mensaje de error
+            JOptionPane.showMessageDialog(this, "Error: Debes ingresar un número entero válido");
+            // Limpiar el JTextField para que el usuario vuelva a intentar
+            jTAnioMate.setText(null);
+            jTCodigoMate.setText(null);
+        }
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
-                
 
         this.dispose();
-        
+
     }//GEN-LAST:event_jBSalirActionPerformed
 
 
@@ -119,5 +127,4 @@ public class InterMateria extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTNombreMate;
     // End of variables declaration//GEN-END:variables
 
-    
 }

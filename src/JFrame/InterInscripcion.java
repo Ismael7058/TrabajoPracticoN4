@@ -1,11 +1,14 @@
 package JFrame;
 
 import java.util.HashSet;
+import javax.swing.JOptionPane;
 import trabajopracticon4.Alumno;
 import trabajopracticon4.Colegio;
 import trabajopracticon4.Materia;
 
 public class InterInscripcion extends javax.swing.JInternalFrame {
+
+    private HashSet<String> inscripcion = new HashSet();
 
     public InterInscripcion() {
         initComponents();
@@ -53,33 +56,48 @@ public class InterInscripcion extends javax.swing.JInternalFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, -1, -1));
 
         jButton2.setText("Inscribir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 255));
         jLabel4.setText("Elija un alumno");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 255));
         jLabel3.setText("Elija una materia");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel2.setText("Formulario de Inscripcion");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
-        getContentPane().add(jCBAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 170, 30));
+        getContentPane().add(jCBAlumno, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 170, 30));
 
-        getContentPane().add(jCBMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 62, 170, 30));
+        getContentPane().add(jCBMateria, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 170, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
-
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        String aux = jCBAlumno.getSelectedItem() + "" + jCBMateria.getSelectedItem();
+        if (inscripcion.contains(aux)) {
+            JOptionPane.showMessageDialog(this, "El alumno ya esta incripto a la materia");
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Alumno: " + jCBAlumno.getSelectedItem() + "\n se a incripto a " + jCBMateria.getSelectedItem());
+            inscripcion.add(aux);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
