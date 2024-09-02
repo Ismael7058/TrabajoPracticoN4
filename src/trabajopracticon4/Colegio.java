@@ -2,9 +2,9 @@ package trabajopracticon4;
 
 import JFrame.Menu;
 import java.util.HashSet;
+import javax.swing.JOptionPane;
 
 public class Colegio {
-    private static HashSet<String> incripcion = new HashSet<>();//almacena los datos de inscripcion
     private static HashSet<Alumno> listaAlumnoMain = new HashSet<>();//almacenamiento primario de alumnos
     private static HashSet<Materia> listaMateriaMain = new HashSet<>();//almacenamiento primario de materias
 
@@ -48,8 +48,6 @@ public class Colegio {
 
         Menu menu = new Menu();//con esto se crea el objeto
         menu.setVisible(true);//para mostrar el menu
-        menu.obtenerAlumnos(listaAlumnoMain);
-        menu.obtenerMateria(listaMateriaMain);
     }
     //Los siguientes 4 metodos son para que desde 
     //InterInscripcion,InterAlumno y InterMateria
@@ -70,13 +68,4 @@ public class Colegio {
     public static HashSet<Materia> getListaMaterias() {
         return listaMateriaMain;
     }
-
-    public static HashSet<String> getIncripcion() {
-        return incripcion;
-    }
-
-    public static void setIncripcion(HashSet<String> incripcion) {
-        Colegio.incripcion = incripcion;
-    }
-    
 }

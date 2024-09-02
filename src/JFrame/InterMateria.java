@@ -2,13 +2,12 @@ package JFrame;
 
 import java.util.HashSet;
 import javax.swing.JOptionPane;
-import trabajopracticon4.Alumno;
 import trabajopracticon4.Colegio;
 import trabajopracticon4.Materia;
 
 public class InterMateria extends javax.swing.JInternalFrame {
 
-    public InterMateria(HashSet<Materia> listaMateriaMenu) {
+    public InterMateria() {
         initComponents();
         this.setSize(400, 300);
         this.setTitle("Materia");
@@ -97,7 +96,15 @@ public class InterMateria extends javax.swing.JInternalFrame {
             int anio = Integer.parseInt(jTAnioMate.getText());
 
             Materia mat = new Materia(codMat, nomMat, anio);
-            Colegio.setMateria(mat);
+            
+            if(Colegio.getListaMaterias().contains(mat)){
+                JOptionPane.showMessageDialog(this, "La materia ya existe");
+            }else{
+               Colegio.getListaMaterias().add(mat);//Se guarda
+                JOptionPane.showMessageDialog(this, "Materia agregada");
+                
+            }
+            
         } catch (NumberFormatException ex) {
             // Capturar la excepción y mostrar un mensaje de error
             JOptionPane.showMessageDialog(this, "Error: Debes ingresar un número entero válido");
@@ -108,9 +115,7 @@ public class InterMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
-
         this.dispose();
-
     }//GEN-LAST:event_jBSalirActionPerformed
 
 

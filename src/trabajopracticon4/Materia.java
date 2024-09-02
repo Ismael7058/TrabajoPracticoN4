@@ -1,7 +1,5 @@
 package trabajopracticon4;
 
-import java.util.Objects;
-
 public class Materia {
     private int idMateria, anio;
     private String nombre;
@@ -33,10 +31,8 @@ public class Materia {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 11 * hash + this.idMateria;
-        hash = 11 * hash + this.anio;
-        hash = 11 * hash + Objects.hashCode(this.nombre);
+        int hash = 3;
+        hash = 53 * hash + this.idMateria;
         return hash;
     }
 
@@ -52,15 +48,9 @@ public class Materia {
             return false;
         }
         final Materia other = (Materia) obj;
-        if (this.idMateria != other.idMateria) {
-            return false;
-        }
-        if (this.anio != other.anio) {
-            return false;
-        }
-        return Objects.equals(this.nombre, other.nombre);
+        return this.idMateria == other.idMateria;
     }
-
+    
     @Override
     public String toString() {
         return idMateria + " - " + nombre + " - " + anio;

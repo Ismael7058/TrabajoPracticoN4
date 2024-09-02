@@ -1,6 +1,5 @@
 package JFrame;
 
-import java.util.HashSet;
 import javax.swing.JOptionPane;
 import trabajopracticon4.Alumno;
 import trabajopracticon4.Colegio;
@@ -8,18 +7,16 @@ import trabajopracticon4.Materia;
 
 public class InterInscripcion extends javax.swing.JInternalFrame {
 
-    private HashSet<String> inscripcion = new HashSet();
-
     public InterInscripcion() {
         initComponents();
         this.setSize(400, 300);
         this.setTitle("Colegio");
         //Estos 2 forEach hacen que se carguen los comboBox
         for (Alumno alumno : Colegio.getListaAlumnos()) {
-            jCBAlumno.addItem(alumno.toString());
+            jCBAlumno.addItem(alumno);
         }
         for (Materia materia : Colegio.getListaMaterias()) {
-            jCBMateria.addItem(materia.toString());
+            jCBMateria.addItem(materia);
         }
 
     }
@@ -89,13 +86,13 @@ public class InterInscripcion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String aux = jCBAlumno.getSelectedItem() + "" + jCBMateria.getSelectedItem();
-        if (Colegio.getIncripcion().contains(aux)) {
-            JOptionPane.showMessageDialog(this, "El alumno ya esta incripto a la materia");
-
+        Alumno alumnSelec = (Alumno) jCBAlumno.getSelectedItem();
+        Materia mateSelec = (Materia) jCBMateria.getSelectedItem();
+        if (alumnSelec.getMatInscrip().contains(mateSelec)) {
+            JOptionPane.showMessageDialog(this, "El alumno ya esta inscripto en la materia");
         } else {
-            JOptionPane.showMessageDialog(this, "Alumno: " + jCBAlumno.getSelectedItem() + "\n se a incripto a " + jCBMateria.getSelectedItem());
-            Colegio.getIncripcion().add(aux);
+            alumnSelec.agregarMaterias(mateSelec);
+            JOptionPane.showMessageDialog(this, "Alumno: " + alumnSelec + "\n se ha inscrito en " + mateSelec);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -103,8 +100,8 @@ public class InterInscripcion extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jCBAlumno;
-    private javax.swing.JComboBox<String> jCBMateria;
+    private javax.swing.JComboBox<Alumno> jCBAlumno;
+    private javax.swing.JComboBox<Materia> jCBMateria;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

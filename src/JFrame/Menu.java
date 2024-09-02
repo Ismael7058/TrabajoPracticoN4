@@ -1,15 +1,11 @@
 package JFrame;
 
 import java.util.HashSet;
-import java.util.Locale;
 import javax.swing.JFrame;
 import trabajopracticon4.Alumno;
 import trabajopracticon4.Materia;
 
 public class Menu extends javax.swing.JFrame {
-
-    HashSet<Alumno> listaAlumnosMenu = new HashSet<>();
-    HashSet<Materia> listaMateriaMenu = new HashSet<>();
 
     public Menu() {
         initComponents();
@@ -107,7 +103,7 @@ public class Menu extends javax.swing.JFrame {
     private void JMIalumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMIalumnoActionPerformed
         jDPMEscritorio.removeAll();
         jDPMEscritorio.repaint();
-        InterAlumno interAlumno = new InterAlumno(listaAlumnosMenu);
+        InterAlumno interAlumno = new InterAlumno();
         jDPMEscritorio.add(interAlumno);
         interAlumno.setVisible(true);
 
@@ -116,7 +112,7 @@ public class Menu extends javax.swing.JFrame {
     private void jMImateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMImateriaActionPerformed
         jDPMEscritorio.removeAll();
         jDPMEscritorio.repaint();
-        InterMateria interMateria = new InterMateria(listaMateriaMenu);
+        InterMateria interMateria = new InterMateria();
         jDPMEscritorio.add(interMateria);
         interMateria.setVisible(true);
 
@@ -167,18 +163,4 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMImateria;
     private javax.swing.JMenuItem jMenuItem3;
     // End of variables declaration//GEN-END:variables
-    public void obtenerAlumnos(HashSet<Alumno> listaAlumnos) {
-
-        for (Alumno alumno : listaAlumnos) {
-            listaAlumnosMenu.add(alumno);
-        }
-
-    }
-    public void obtenerMateria(HashSet<Materia> listaMaterias) {
-
-        for (Materia materia : listaMaterias) {
-            listaMateriaMenu.add(materia);
-        }
-
-    }
 }

@@ -7,9 +7,7 @@ import trabajopracticon4.Colegio;
 
 public class InterAlumno extends javax.swing.JInternalFrame {
 
-    HashSet<Alumno> listaAlumnoInter = new HashSet<>();//almacenamiento propio de interAlumnos
-
-    public InterAlumno(HashSet<Alumno> listaAlumnosMenu) {
+    public InterAlumno() {
         initComponents();
         this.setSize(400, 300);
         this.setTitle("Alumno");
@@ -97,14 +95,23 @@ public class InterAlumno extends javax.swing.JInternalFrame {
             int leg = Integer.parseInt(jTLegajoAlum.getText());
 
             Alumno alum = new Alumno(leg, nom, ape);
-            Colegio.setAlumno(alum);//Se guarda 
+            
+            if(Colegio.getListaAlumnos().contains(alum)){
+                JOptionPane.showMessageDialog(this, "El alumno ya existe");
+            }else{
+                Colegio.getListaAlumnos().add(alum);//Se guarda
+                JOptionPane.showMessageDialog(this, "Alumno agregado");
+                
+            }
+            
+
         } catch (NumberFormatException ex) {
-            // Capturar la excepción y mostrar un mensaje de error
-            JOptionPane.showMessageDialog(this, "Error: Debes ingresar un número entero válido");
-            // Limpiar el JTextField para que el usuario vuelva a intentar
+            //Capturar la excepcion y mostrar un mensaje de error
+            JOptionPane.showMessageDialog(this, "Error: Debes ingresar un numero entero valido");
+            //Limpiar el JTextField para que el usuario vuelva a intentar
             jTLegajoAlum.setText("");
         }
-        
+
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
