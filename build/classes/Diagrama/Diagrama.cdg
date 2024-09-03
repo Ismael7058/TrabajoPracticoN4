@@ -2,7 +2,7 @@
 
 <ClassDiagram name="Multi-package class diagram">
   <ClassDiagramComponents>
-    <Class name="Alumno" package="trabajopracticon4" visibility="public" xPosition="233.0" yPosition="513.0">
+    <Class name="Alumno" package="trabajopracticon4" visibility="public" xPosition="63.0" yPosition="83.0">
       <Fields>
         <Field name="numLegajo" type="int" visibility="private"/>
         <Field name="nombre" type="String" visibility="private"/>
@@ -43,7 +43,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Colegio" package="trabajopracticon4" visibility="public" xPosition="280.0" yPosition="158.0">
+    <Class name="Colegio" package="trabajopracticon4" visibility="public" xPosition="74.0" yPosition="582.0">
       <Fields>
         <Field name="listaAlumnoMain" type="HashSet&lt;Alumno&gt;" visibility="private" isStatic="true"/>
         <Field name="listaMateriaMain" type="HashSet&lt;Materia&gt;" visibility="private" isStatic="true"/>
@@ -63,7 +63,7 @@
         <Method name="getListaMaterias" returnType="HashSet&lt;Materia&gt;" visibility="public" isStatic="true"/>
       </Methods>
     </Class>
-    <Class name="Materia" package="trabajopracticon4" visibility="public" xPosition="1107.0" yPosition="212.0">
+    <Class name="Materia" package="trabajopracticon4" visibility="public" xPosition="498.0" yPosition="131.0">
       <Fields>
         <Field name="idMateria" type="int" visibility="private"/>
         <Field name="nombre" type="String" visibility="private"/>
@@ -95,7 +95,7 @@
         <Method name="toString" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="InterAlumno" package="JFrame" visibility="public" xPosition="2069.0" yPosition="826.0">
+    <Class name="InterAlumno" package="JFrame" visibility="public" xPosition="1781.0" yPosition="430.0">
       <Fields>
         <Field name="jBGuardar" type="javax.swing.JButton" visibility="private"/>
         <Field name="jBNuevo" type="javax.swing.JButton" visibility="private"/>
@@ -124,7 +124,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="InterInscripcion" package="JFrame" visibility="public" xPosition="617.0" yPosition="902.0">
+    <Class name="InterInscripcion" package="JFrame" visibility="public" xPosition="1477.0" yPosition="845.0">
       <Fields>
         <Field name="jButton1" type="javax.swing.JButton" visibility="private"/>
         <Field name="jButton2" type="javax.swing.JButton" visibility="private"/>
@@ -147,7 +147,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="InterMateria" package="JFrame" visibility="public" xPosition="1348.0" yPosition="826.0">
+    <Class name="InterMateria" package="JFrame" visibility="public" xPosition="1076.0" yPosition="430.0">
       <Fields>
         <Field name="jBGuardar" type="javax.swing.JButton" visibility="private"/>
         <Field name="jBNuevo" type="javax.swing.JButton" visibility="private"/>
@@ -176,7 +176,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Menu" package="JFrame" visibility="public" xPosition="1586.0" yPosition="388.0">
+    <Class name="Menu" package="JFrame" visibility="public" xPosition="1281.0" yPosition="42.0">
       <Fields>
         <Field name="JMAlumno" type="javax.swing.JMenu" visibility="private"/>
         <Field name="JMIalumno" type="javax.swing.JMenuItem" visibility="private"/>
@@ -208,13 +208,6 @@
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="matInscrip" source="trabajopracticon4.Alumno" target="trabajopracticon4.Materia" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashSet&lt;Materia&gt;"/>
-    <UseRelation source="trabajopracticon4.Alumno" target="trabajopracticon4.Materia" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="jCBMateria" source="JFrame.InterInscripcion" target="trabajopracticon4.Materia" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="listaAlumnoMain" source="trabajopracticon4.Colegio" target="trabajopracticon4.Alumno" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashSet&lt;Alumno&gt;"/>
-    <UseRelation name="" source="trabajopracticon4.Colegio" target="trabajopracticon4.Materia" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="listaMateriaMain" source="trabajopracticon4.Colegio" target="trabajopracticon4.Materia" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashSet&lt;Materia&gt;"/>
-    <HasRelation name="jCBAlumno" source="JFrame.InterInscripcion" target="trabajopracticon4.Alumno" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="trabajopracticon4.Colegio" target="trabajopracticon4.Alumno" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Inscripto" source="trabajopracticon4.Alumno" target="trabajopracticon4.Materia" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="HashSet"/>
   </ClassDiagramRelations>
 </ClassDiagram>
